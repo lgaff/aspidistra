@@ -1,3 +1,5 @@
+#ifndef VGA_H
+#define VGA_H
 // definitions for the VGA hardware.
 
 // 4 bit color codes
@@ -111,3 +113,4 @@
 // Globally accessible VGA functions
 
 
+#endif
