@@ -36,7 +36,7 @@
 
 #include "types.h"
 #include "stdio.h"
-#include "stdconv.h"
+#include "string.h"
 #include "liz.h"
 #include "console.h"
 
