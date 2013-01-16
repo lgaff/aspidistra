@@ -6,10 +6,11 @@
 #include "multiboot.h"
 #include "cpu.h"
 #include "stdio.h"
-#include "salvager.h"
+#include "liz.h"
 
 extern void magical_break();
 extern ubyte *print_buffer;
+extern udword *heap_start;
 
 ubyte dummy_func(ubyte xx)
 {
@@ -37,13 +38,9 @@ void _main(multiboot_info_t *mbd, unsigned int magic)
   vsprintf(print_buffer, "multiboot flags are: %08x\n", mbd->flags);
   console_putstr(DFL_ATTRIB, print_buffer);
   show_memory_map(mbd);
-  /*  if(cpu_supports_cpuid())
-      {*/
   vsprintf(print_buffer, "CPU: %s\n", cpuid_string(0, vendor_string));
   console_putstr(DFL_ATTRIB, print_buffer);
-      /*    }
-  else
-    kprintf("CPU: Unknown\n");
-      */
-  salvager_loop();    
+  construct_mmap(mbd);
+  liz_main((udword *)kmalloc(1024));
+
 }

@@ -19,4 +19,5 @@ SECTIONS {
 	      _ebss = .;
          }
 	 kspace_end = .;
+	 heap_start = .;
 }
