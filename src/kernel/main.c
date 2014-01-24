@@ -6,7 +6,6 @@
 #include "multiboot.h"
 #include "cpu.h"
 #include "stdio.h"
-#include "liz.h"
 
 extern void magical_break();
 extern ubyte *print_buffer;

@@ -1,6 +1,5 @@
 #include "timer.h"
 #include "interrupts.h"
-#include "console.h"
 
 
 udword tick = 0;
@@ -12,7 +11,6 @@ static void timer_callback(registers_t regs)
 
 void init_timer(udword frequency)
 {
-  console_putstr(DFL_ATTRIB, "Registering timer interrupt\n");
   register_interrupt_handler(IRQ0, &timer_callback);
   udword divisor = 1193180 / frequency;
 
