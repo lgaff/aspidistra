@@ -41,6 +41,7 @@ void _main(multiboot_info_t *mbd, unsigned int magic)
   vsprintf(print_buffer, "CPU: %s\n", cpuid_string(0, vendor_string));
   console_putstr(DFL_ATTRIB, print_buffer);
   construct_mmap(mbd);
-  liz_main((udword *)kmalloc(1024));
 
+  console_putstr(DFL_ATTRIB, "Entering a loop!");
+  for(;;) {}
 }
